@@ -231,5 +231,172 @@ class MergeSort {
 }
 
 
+//quicksort replacement written by: Brandon Bratcher
+/*
+import java.util.ArrayList;
+import java.util.Random;
+
+public class QuickSort {
+	private int[] unsorted;
+	private int[] sorted;
+	private int inversions;
+	
+	//constructor
+	QuickSort(int[] unsorted_) {
+		//set unsorted value
+		this.unsorted = unsorted_;
+		//set inversions to 0
+		this.inversions = 0;
+		
+		//convert unsorted into an ArrayList of type Integer
+		ArrayList<Integer> temp = new ArrayList<Integer>();
+		for (int i=0; i<this.unsorted.length; i++) {
+			temp.add(this.unsorted[i]);
+		}
+		
+		//sort temp(holds the values of unsorted)
+		temp = sort(temp);
+		
+		//transfer sorted values into sorted
+		this.sorted = new int[temp.size()];
+		for (int i=0; i<temp.size(); i++) {
+			this.sorted[i] = temp.get(i);
+		}
+	}
+	
+	//setters
+	public void setUnsorted(int[] unsorted_) {
+		this.unsorted = unsorted_;
+	}
+	
+	//getters
+	public int[] getUnsorted() {
+		return unsorted;
+	}
+	
+	public int[] getSorted() {
+		return sorted;
+	}
+	
+	public int getInversions() {
+		return inversions;
+	}
+	
+	//other methods
+	public ArrayList<Integer> sort(ArrayList<Integer> array) {
+		if (array.size() <= 1) {
+			return array;
+		} else {
+			ArrayList<Integer> less_than = new ArrayList<Integer>();
+			ArrayList<Integer> equal_to = new ArrayList<Integer>();
+			ArrayList<Integer> greater_than = new ArrayList<Integer>();
+			
+			Random rand = new Random();
+			int pivot_index = rand.nextInt(array.size());
+			int pivot_val = array.get(pivot_index);
+			
+			for (int i=0; i<array.size(); i++) {
+				int element = array.get(i);
+				
+				if (element < pivot_val) {
+					less_than.add(element);
+					
+					this.inversions += equal_to.size();
+					this.inversions += greater_than.size();
+				} else if (element == pivot_val) {
+					equal_to.add(element);
+					
+					this.inversions += greater_than.size();
+				} else {
+					greater_than.add(element);
+				}
+			}
+			
+			less_than = sort(less_than);
+			greater_than = sort(greater_than);
+			
+			return merge(less_than, equal_to, greater_than);
+		}
+	}
+	
+	public void sort(int[] unsorted_) {
+		setUnsorted(unsorted_);
+		
+		//convert unsorted into an ArrayList of type Integer
+		ArrayList<Integer> temp = new ArrayList<Integer>();
+		for (int i=0; i<this.unsorted.length; i++) {
+			temp.add(this.unsorted[i]);
+		}
+		
+		//sort temp(holds the values of unsorted)
+		temp = sort(temp);
+		
+		//transfer sorted values into sorted
+		this.sorted = new int[temp.size()];
+		for (int i=0; i<temp.size(); i++) {
+			this.sorted[i] = temp.get(i);
+		}
+	}
+	
+	private ArrayList<Integer> merge(ArrayList<Integer> less, ArrayList<Integer> equal, ArrayList<Integer> greater) {
+		ArrayList<Integer> merged = new ArrayList<Integer>();
+		
+		//concatenate less into merged
+		for (int i=0; i<less.size(); i++) {
+			merged.add(less.get(i));
+		}
+		
+		//concatenate equal into merged
+		for (int i=0; i<equal.size(); i++) {
+			merged.add(equal.get(i));
+		}
+		
+		//concatenate greater into merged
+		for (int i=0; i<greater.size(); i++) {
+			merged.add(greater.get(i));
+		}
+		
+		//return merged
+		return merged;
+	}
+	
+	public void display() {
+		displayUnsorted();
+		displaySorted();
+		displayInversions();
+	}
+	
+	public void displayUnsorted() {
+		System.out.print("Unsorted array: ");
+		for (int i=0; i<this.unsorted.length; i++) {
+			if (i==0) {
+				System.out.print(this.unsorted[i]);
+			} else {
+				System.out.print(", " + this.unsorted[i]);
+			}
+		}
+		System.out.println();
+	}
+	
+	public void displaySorted() {
+		System.out.print("Unsorted array: ");
+		for (int i=0; i<this.sorted.length; i++) {
+			if (i==0) {
+				System.out.print(this.sorted[i]);
+			} else {
+				System.out.print(", " + this.sorted[i]);
+			}
+		}
+		System.out.println();
+	}
+	
+	public void displayInversions() {
+		System.out.println("Inversion: " + this.inversions);
+		System.out.println();
+	}
+}
+
+*/
+
 
 
